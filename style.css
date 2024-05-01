@@ -1,4 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Caesar+Dressing&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sedgwick+Ave+Display&display=swap");
+
+:root {
+  --divider: white;
+  --border: white;
+}
 
 * {
   padding: 0px;
@@ -25,11 +30,12 @@
 .apod-btn {
   color: white;
   background-color: #333;
-  border: 3px solid rgb(209, 213, 219);
+  border: 3px solid var(--border);
   border-radius: 0.5rem;
   box-sizing: border-box;
   font-family: Roboto, Georgia, "Times New Roman", Times, serif;
-  padding: 1rem;
+  font-weight: 500;
+  padding: 1rem 2rem;
   text-align: center;
   text-decoration: none #d1d5db solid;
   text-decoration-thickness: auto;
@@ -37,13 +43,13 @@
   cursor: pointer;
   transition: 0.3s;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-60%, -50%);
+  bottom: 20px; /* Adjust the distance from the bottom */
+  right: 20px;
 }
 
 .apod-btn:hover {
-  background-color: rgb(214, 215, 216);
+  color: #333;
+  background-color: white;
 }
 
 .apod-btn:focus {
@@ -67,11 +73,11 @@
   text-align: left;
   align-content: center;
   padding: 4rem 6rem;
-  border-right: 10px double white;
+  border-right: 10px double var(--divider);
 }
 
 .apod-title {
-  font-family: "Caesar Dressing", system-ui;
+  font-family: "Sedgwick Ave Display", system-ui;
   font-weight: 400;
   font-style: normal;
   margin: 1rem 0rem;
