@@ -3,13 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>APOD Viewer</title>
+    <title>NASA Astronomy Picture Of The Day</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <button type="button" id="get-random-apod-btn" class="apod-btn">
-      Show New APOD
-    </button>
+    <div class="animation">
+      <button
+        type="button"
+        id="get-random-apod-btn"
+        class="apod-btn apod-btn-center apod-btn-fadein"
+      ></button>
+    </div>
     <div class="apod-display">
       <div class="apod-info">
         <h1 id="apod-title" class="apod-title"></h1>

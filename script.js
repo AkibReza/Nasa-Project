@@ -7,6 +7,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const apodExplanation = document.getElementById("apod-explanation");
   const getRandomApodBtn = document.getElementById("get-random-apod-btn");
 
+  let active = false;
+  getRandomApodBtn.textContent = "Show an APOD";
+
   // Function to generate a random date within a specified range
   const getRandomDate = () => {
     const startDate = new Date("1995-06-16"); // APOD started on June 16, 1995
@@ -31,6 +34,18 @@ document.addEventListener("DOMContentLoaded", function () {
       // Update the title with the fetched APOD title
       apodTitle.textContent = data.title;
       apodExplanation.textContent = data.explanation;
+
+      getRandomApodBtn.classList.remove("apod-btn-fadein");
+      if (!active) {
+        getRandomApodBtn.textContent = "Show another APOD";
+        getRandomApodBtn.classList.add("apod-btn-hidden");
+        setTimeout(() => {
+          getRandomApodBtn.classList.remove("apod-btn-hidden");
+          getRandomApodBtn.classList.add("apod-btn-active");
+        }, 500);
+        active = true;
+      }
+
       console.log(data.title);
       console.log(apodTitle);
 

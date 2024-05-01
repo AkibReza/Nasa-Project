@@ -5,6 +5,12 @@
   --border: white;
 }
 
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("./src/bg.jpg") center/cover no-repeat fixed;
+  position: relative;
+}
+
 * {
   padding: 0px;
   margin: 0px;
@@ -34,22 +40,62 @@
   border-radius: 0.5rem;
   box-sizing: border-box;
   font-family: Roboto, Georgia, "Times New Roman", Times, serif;
-  font-weight: 500;
-  padding: 1rem 2rem;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 2rem 4rem;
   text-align: center;
   text-decoration: none #d1d5db solid;
-  text-decoration-thickness: auto;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   cursor: pointer;
-  transition: 0.3s;
   position: absolute;
-  bottom: 20px; /* Adjust the distance from the bottom */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.5s;
+}
+
+.apod-btn-active {
+  /* Additional styles for the active state */
+  top: auto;
   right: 20px;
+  bottom: 20px;
+  left: auto;
+  opacity: 1;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+}
+
+.apod-btn-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.apod-btn-fadein {
+  opacity: 0;
+  animation: opacityFadeIn 1.5s forwards, slideFromTop 1s forwards; /* Apply the opacityFadeIn */
+}
+
+@keyframes opacityFadeIn {
+  from {
+    opacity: 0; /* Start with opacity 0 */
+  }
+  to {
+    opacity: 1; /* End with opacity 1 */
+  }
+}
+@keyframes slideFromTop {
+  from {
+    top: 0%;
+  }
+  to {
+    top: 50%;
+  }
 }
 
 .apod-btn:hover {
   color: #333;
   background-color: white;
+  transition: 0.3s;
 }
 
 .apod-btn:focus {
@@ -66,14 +112,12 @@
   grid-template-columns: 1fr 1fr;
   gap: 20px;
   height: 100vh;
-  background-color: #333;
 }
 
 .apod-info {
   text-align: left;
   align-content: center;
   padding: 4rem 6rem;
-  border-right: 10px double var(--divider);
 }
 
 .apod-title {
