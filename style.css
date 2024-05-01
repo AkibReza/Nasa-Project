@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Caesar+Dressing&family=Roboto&display=swap");
+
+* {
+  padding: 0px;
+  margin: 0px;
+  color: white;
+}
+
+.apod-container {
+  text-align: center;
+  margin-top: 50px;
+  align-content: center;
+}
+
+.apod-image {
+  max-width: 70vh;
+  height: 70vh;
+  margin-bottom: 20px;
+  object-fit: cover;
+  border: 1px solid white;
+  box-shadow: 0 4px 8px 0 rgba(226, 208, 208, 0.5),
+    0 6px 20px 0 rgba(155, 100, 100, 0.5);
+}
+
+.apod-btn {
+  color: white;
+  background-color: #333;
+  border: 3px solid rgb(209, 213, 219);
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  font-family: Roboto, Georgia, "Times New Roman", Times, serif;
+  padding: 1rem;
+  text-align: center;
+  text-decoration: none #d1d5db solid;
+  text-decoration-thickness: auto;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: 0.3s;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-60%, -50%);
+}
+
+.apod-btn:hover {
+  background-color: rgb(214, 215, 216);
+}
+
+.apod-btn:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.apod-btn:focus-visible {
+  box-shadow: none;
+}
+
+.apod-display {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  height: 100vh;
+  background-color: #333;
+}
+
+.apod-info {
+  text-align: left;
+  align-content: center;
+  padding: 4rem 6rem;
+  border-right: 10px double white;
+}
+
+.apod-title {
+  font-family: "Caesar Dressing", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  margin: 1rem 0rem;
+  font-size: 60px;
+}
+
+.apod-explanation {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 2rem;
+  text-align: justify;
+}
