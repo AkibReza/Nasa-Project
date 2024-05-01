@@ -54,6 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Create an image element and set its attributes
         const apodImage = document.createElement("img");
         apodImage.classList.add("apod-image");
+        apodImage.classList.add("skeleton");
         apodImage.src = data.url;
         apodImage.alt = data.title;
 
