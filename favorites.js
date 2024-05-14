@@ -35,7 +35,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   } else {
     // If the user is not authenticated, redirect them to the login page
-    window.location.href = "login.html";
+    window.location.href = "index.html";
+    alert("You need to login/register first.");
   }
 });
 
@@ -126,6 +127,7 @@ function renderFavorites() {
     }
   } else {
     // If the user is not authenticated, redirect them to the login page
-    window.location.href = "login.html";
+    window.location.href = "index.html";
+    alert("You need to login/register first.");
   }
 }
