@@ -4,14 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NASA Astronomy Picture Of The Day</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
   </head>
   <body>
+    <a
+      href="authenticate.html"
+      class="apod-btn user-btn"
+      style="position: absolute; top: 1%; right: 1%"
+      >Authenticate</a
+    >
+    <div
+      id="favorites-display"
+      class="apod-btn-hidden"
+      style="position: absolute; top: 1%; left: 1%"
+    >
+      <a href="favorites.html" class="apod-btn user-btn">Favorites Page</a>
+      <button id="favorites-btn" class="apod-btn user-btn">I like it!</button>
+    </div>
     <div class="animation">
       <button
         type="button"
         id="get-random-apod-btn"
-        class="apod-btn apod-btn-center apod-btn-fadein"
+        class="apod-btn apod-btn-center apod-btn-fadein apod-btn-main"
       ></button>
     </div>
     <div class="apod-display">

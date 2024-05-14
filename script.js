@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const apodTitle = document.getElementById("apod-title");
   const apodExplanation = document.getElementById("apod-explanation");
   const getRandomApodBtn = document.getElementById("get-random-apod-btn");
+  const favoritesBtn = document.getElementById("favorites-btn"); // New
+  const favoritesDisplay = document.getElementById("favorites-display");
 
   let active = false;
   getRandomApodBtn.textContent = "Show an APOD";
@@ -34,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Update the title with the fetched APOD title
       apodTitle.textContent = data.title;
       apodExplanation.textContent = data.explanation;
-
+      favoritesDisplay.classList.remove("apod-btn-hidden");
       getRandomApodBtn.classList.remove("apod-btn-fadein");
       if (!active) {
         getRandomApodBtn.textContent = "Show another APOD";
@@ -42,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(() => {
           getRandomApodBtn.classList.remove("apod-btn-hidden");
           getRandomApodBtn.classList.add("apod-btn-active");
-        }, 500);
+        }, 200);
         active = true;
       }
 
@@ -81,4 +83,89 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Add event listener to the button to fetch a random APOD on click
   getRandomApodBtn.addEventListener("click", fetchRandomApod);
+
+  function getAuthenticatedUser() {
+    // Retrieve the authenticated user's data from localStorage
+    const authenticatedUserData = localStorage.getItem("authenticatedUser");
+
+    // Check if the authenticated user's data exists
+    if (authenticatedUserData) {
+      // Parse the JSON string to an object
+      const authenticatedUser = JSON.parse(authenticatedUserData);
+      return authenticatedUser;
+    } else {
+      // If no authenticated user's data exists, return null
+      return null;
+    }
+  }
+
+  // New: Add event listener to the favorites button
+  favoritesBtn.addEventListener("click", function () {
+    // Get the current date for the favorite APOD
+    const currentDate = new Date().toISOString().split("T")[0];
+
+    // Get the favorite APOD data
+    const favoriteData = {
+      date: currentDate,
+      title: apodTitle.textContent,
+      explanation: apodExplanation.textContent,
+      media_type: apodContainer.querySelector("img") ? "image" : "video",
+      url: apodContainer.querySelector("img")
+        ? apodContainer.querySelector("img").src
+        : apodContainer.querySelector("iframe").src,
+    };
+
+    // Get the authenticated user
+    const authenticatedUser = getAuthenticatedUser();
+
+    // Ensure that the authenticated user object exists
+    if (authenticatedUser) {
+      // Get the users data from localStorage
+      const users = localStorage.getItem("users")
+        ? JSON.parse(localStorage.getItem("users"))
+        : [];
+
+      // Find the user's data in the users array
+      const userIndex = users.findIndex(
+        (u) => u.username === authenticatedUser.username
+      );
+
+      // If the user is found in the users array
+      if (userIndex !== -1) {
+        // Update the favorites for the user
+        if (!users[userIndex].favorites) {
+          users[userIndex].favorites = [favoriteData];
+        } else {
+          users[userIndex].favorites.push(favoriteData);
+        }
+
+        // Update the users data in localStorage
+        localStorage.setItem("users", JSON.stringify(users));
+
+        alert("APOD added to favorites!");
+      } else {
+        alert("User not found!");
+      }
+    } else {
+      alert("Please login/register to add favorites.");
+    }
+  });
+
+  // Function to get the authenticated user (you need to implement this logic)
+  function getAuthenticatedUser() {
+    const authenticatedUserData = localStorage.getItem("authenticatedUser");
+    console.log(
+      "Authenticated user data from localStorage:",
+      authenticatedUserData
+    );
+
+    if (authenticatedUserData) {
+      const authenticatedUser = JSON.parse(authenticatedUserData);
+      console.log("Parsed authenticated user:", authenticatedUser);
+      return authenticatedUser;
+    } else {
+      console.log("No authenticated user data found.");
+      return null;
+    }
+  }
 });

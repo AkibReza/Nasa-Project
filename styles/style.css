@@ -7,14 +7,13 @@
 
 body {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url("./src/bg.jpg") center/cover no-repeat fixed;
+    url("../src/bg.jpg") center/cover no-repeat fixed;
   position: relative;
 }
 
 * {
   padding: 0px;
   margin: 0px;
-  color: white;
 }
 
 .apod-container {
@@ -33,6 +32,22 @@ body {
     0 6px 20px 0 rgba(155, 100, 100, 0.5);
 }
 
+.apod-btn-main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.5s;
+  font-size: 2rem;
+
+  padding: 2rem 4rem;
+}
+
+.user-btn {
+  padding: 1rem;
+  font-size: 1rem;
+}
+
 .apod-btn {
   color: white;
   background-color: #333;
@@ -40,18 +55,11 @@ body {
   border-radius: 0.5rem;
   box-sizing: border-box;
   font-family: Roboto, Georgia, "Times New Roman", Times, serif;
-  font-size: 2rem;
   font-weight: 600;
-  padding: 2rem 4rem;
   text-align: center;
   text-decoration: none #d1d5db solid;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   cursor: pointer;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.5s;
 }
 
 .apod-btn-active {
@@ -126,6 +134,7 @@ body {
   font-style: normal;
   margin: 1rem 0rem;
   font-size: 60px;
+  color: white;
 }
 
 .apod-explanation {
@@ -134,10 +143,42 @@ body {
   font-style: normal;
   line-height: 2rem;
   text-align: justify;
+  color: white;
 }
 
 .skeleton {
   animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.authenticate {
+  color: black;
+}
+
+.back-button {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  width: 30px; /* Adjust the width to your preference */
+  height: auto; /* Automatically adjust the height */
+  z-index: 9999; /* Ensure it's on top of other elements */
+}
+
+.favorite-item h2,
+.favorite-item p {
+  color: white;
+}
+
+.favorite-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  margin: 5rem 0rem;
+  border: 1px solid white;
+}
+
+.favorites-display {
+  display: none;
 }
 
 @keyframes skeleton-loading {
