@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const apodTitle = document.getElementById("apod-title");
   const apodExplanation = document.getElementById("apod-explanation");
   const getRandomApodBtn = document.getElementById("get-random-apod-btn");
-  const favoritesBtn = document.getElementById("favorites-btn"); // New
+  const favoritesBtn = document.getElementById("favorites-btn");
   const favoritesDisplay = document.getElementById("favorites-display");
 
   let active = false;
